@@ -1,5 +1,8 @@
 const express = require('express');
 
+//se trae cors paqute 
+const cors = require('cors')
+
 //se traen las rutas 
 const rutas=require('../routes/rutasHoteles')
 
@@ -34,6 +37,7 @@ class ReservaModelo{
         conectarBD();
     }
     crearMiddlewares(){
+        this.app = express();
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended:true })); //x www
         

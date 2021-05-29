@@ -6,13 +6,14 @@ const rutas=require('../routes/rutasHoteles')
 //se trae la concion a BD
 const { conectarBD } = require('../database/conexion')
 
-class ServidorModelo{
+class ReservaModelo{
 
     constructor(){
 
         //atributo (variable)  global para configurar el servidor 
         this.app=express();
         this.despertarBaseDatos();
+        this.crearMiddlewares();
         this.activarAPI();
     }
 
@@ -32,8 +33,14 @@ class ServidorModelo{
     despertarBaseDatos(){
         conectarBD();
     }
+    crearMiddlewares(){
+        this.app.use(express.json());
+        this.app.use(express.urlencoded({ extended:true })); //x www
+        
+
+    }
 
 
 }
 
-module.exports=ServidorModelo;
+module.exports=ReservaModelo;

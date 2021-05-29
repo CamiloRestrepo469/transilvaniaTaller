@@ -1,43 +1,61 @@
 //importar de express las variable rquest y response
 const { request,response }=require('express');
 
+const reservaModelos = require('../models/reservaModelos')
+
 //se crea funciones para cada uno de los servidores de presentara el api
 //el munu del restaurante 
-function id_hotel(peticion=request,respuesta=response){
+async function id_hotel(peticion=request,respuesta=response){
+    let buscarReserva=await reservaModelos.findOne(id);
     respuesta.json({
         estado:true,
-        mensaje:'ESTE ES PARA EL ID de la reservacion'
+        mensaje:buscarReserva
       });
 }
 
-function buscarHotelTransilvania(peticion=request,respuesta=response){
+async function buscarHotelTransilvania(peticion=request,respuesta=response){
+    let buscarReserva=await reservaModelos.find();
     respuesta.json({
         estado:true,
-        mensaje:'ESTE ES PARA BUSCAR EN LA RESERVA DEL HOTEL  GET'
+        mensaje:buscarReserva
       });
     
 }
 
-function agregarHotelTransilvania(peticion=request,respuesta=response){
+async function agregarHotelTransilvania(peticion=request,respuesta=response){
+
+    let datosReserva=peticion.body;
+    let reserva=new reservaModelos(datosReserva);
+    await reserva.save();
+
     respuesta.json({
         estado:true,
-        mensaje:'CON ESTE PUEDO EDITAR EN LA RESERVA  POST'
+        mensaje:'Reserva agregada con Exito',
+        datos: reserva,
       });
 
 }
 
-function editarHotelTransilvania(peticion=request,respuesta=response){
+async function editarHotelTransilvania(peticion=request,respuesta=response){
+    let id=peticion.params.id;
+    let datosReserva=peticion.body;
+
+    await reservaModelos.findByIdAndUpdate(id, datosReserva)
+
     respuesta.json({
         estado:true,
-        mensaje:'CON ESTE PUEDE ACTUALIZAR EN LA RESERVA  PUT'
+        mensaje:'Reserva actualizada con exito'
       });
 
 }
 
-function eliminarHotelTransilvania(peticion=request,respuesta=response){
+async function eliminarHotelTransilvania(peticion=request,respuesta=response){
+    let id=peticion.params.id;
+    await reservaModelos.findByIdAndDelete(id);
+
     respuesta.json({
         estado:true,
-        mensaje:'CON ESTE PUEDO ELIMINAR  DELETE'
+        mensaje:'Reserva eliminada, vuelva pronto'
       });
 
 }

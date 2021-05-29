@@ -7,9 +7,11 @@ const reservaModelos = require('../models/reservaModelos')
 //el munu del restaurante 
 async function id_hotel(peticion=request,respuesta=response){
     let buscarReserva=await reservaModelos.findOne(id);
+    let id=peticion.params.id;
     respuesta.json({
         estado:true,
-        mensaje:buscarReserva
+        mensaje:buscarReserva,id
+        
       });
 }
 

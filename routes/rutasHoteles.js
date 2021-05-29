@@ -37,7 +37,7 @@ const { array } = require('yargs');
 //personalizo mis rutas 
 const rutas=Router();
 //listado de rutas
-rutas.get('/id/reservas',id_hotel);
+rutas.get('/id/reservas/:id',id_hotel);
 rutas.get('/consultar/consultareserva',buscarHotelTransilvania);
 rutas.post('/crear/nuevareservacion',agregarHotelTransilvania);
 rutas.put('/actualizar/editareservacion/:id',editarHotelTransilvania);

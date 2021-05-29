@@ -48,7 +48,8 @@ const ReservaTransilvania=Schema({
     },
     Tipopaquete:{
         type:String,
-        required:true
+        required:true,
+        enum:["dorado","plata"],
     }
 });
 

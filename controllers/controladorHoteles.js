@@ -1,12 +1,12 @@
 //importar de express las variable rquest y response
 const { request,response }=require('express');
 
-const reservaModelos = require('../models/reservaModelos')
+const ReservaModelos = require('../models/ReservaModelos')
 
 //se crea funciones para cada uno de los servidores de presentara el api
 //el munu del restaurante 
 async function id_hotel(peticion=request,respuesta=response){
-    let buscarReserva=await reservaModelos.findOne(id);
+    let buscarReserva=await ReservaModelos.findOne(id);
     let id=peticion.params.id;
     respuesta.json({
         estado:true,
@@ -16,7 +16,7 @@ async function id_hotel(peticion=request,respuesta=response){
 }
 
 async function buscarHotelTransilvania(peticion=request,respuesta=response){
-    let buscarReserva=await reservaModelos.find();
+    let buscarReserva=await ReservaModelos.find();
     respuesta.json({
         estado:true,
         mensaje:buscarReserva
@@ -42,7 +42,7 @@ async function editarHotelTransilvania(peticion=request,respuesta=response){
     let id=peticion.params.id;
     let datosReserva=peticion.body;
 
-    await reservaModelos.findByIdAndUpdate(id, datosReserva)
+    await ReservaModelos.findByIdAndUpdate(id, datosReserva)
 
     respuesta.json({
         estado:true,
@@ -53,7 +53,7 @@ async function editarHotelTransilvania(peticion=request,respuesta=response){
 
 async function eliminarHotelTransilvania(peticion=request,respuesta=response){
     let id=peticion.params.id;
-    await reservaModelos.findByIdAndDelete(id);
+    await ReservaModelos.findByIdAndDelete(id);
 
     respuesta.json({
         estado:true,

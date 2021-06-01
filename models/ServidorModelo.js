@@ -4,10 +4,10 @@ const express = require('express');
 const cors = require('cors')
 
 //se traen las rutas 
-const rutas=require('../routes/rutasHoteles')
+const rutas=require('../routes/RutasHoteles')
 
 //se trae la concion a BD
-const { conectarBD } = require('../database/conexion')
+const { conectarBD } = require('../database/Conexion')
 
 class ReservaModelo{
 

@@ -1,7 +1,7 @@
 //importar de express las variable rquest y response
 const { request,response }=require('express');
 
-const ReservaModelos = require('../models/ReservaModelos')
+const ReservaModelos = require('../models/ReservaModelos.js')
 
 //se crea funciones para cada uno de los servidores de presentara el api
 //el munu del restaurante 

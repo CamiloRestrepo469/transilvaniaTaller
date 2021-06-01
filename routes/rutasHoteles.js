@@ -2,18 +2,18 @@
 const { Router }= require ('express');
 
 //importar traer los controladores
-const { id_hotel }= require('../controllers/ControladorHoteles')
+const { id_hotel }= require('../controllers/ControladorHoteles.js')
 
-const { buscarHotelTransilvania }= require('../controllers/ControladorHoteles')
+const { buscarHotelTransilvania }= require('../controllers/ControladorHoteles.js')
 
-const { agregarHotelTransilvania }= require('../controllers/ControladorHoteles')
+const { agregarHotelTransilvania }= require('../controllers/ControladorHoteles.js')
 
-const { editarHotelTransilvania }= require('../controllers/ControladorHoteles')
+const { editarHotelTransilvania }= require('../controllers/ControladorHoteles.js')
 
-const { eliminarHotelTransilvania }= require('../controllers/ControladorHoteles')
+const { eliminarHotelTransilvania }= require('../controllers/ControladorHoteles.js')
 
 //importar validaciones 
-const { validarPeticion }=require('../validations/Validaciones')
+const { validarPeticion }=require('../validations/Validaciones.js')
 //importara el metodo 
 const {check}=require('express-validator');
 const { array } = require('yargs');

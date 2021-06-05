@@ -6,7 +6,7 @@ const ReservaModelos = require('../models/ReservaModelos.js')
 //se crea funciones para cada uno de los servidores de presentara el api
 //el munu del restaurante 
 async function id_hotel(peticion=request,respuesta=response){
-    let buscarReserva=await ReservaModelos.findOne(id);
+    let buscarReserva=await ReservaModelos.findById(id);
     let id=peticion.params.id;
     respuesta.json({
         estado:true,

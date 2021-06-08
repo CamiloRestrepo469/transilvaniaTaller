@@ -46,7 +46,9 @@ async function editarHotelTransilvania(peticion=request,respuesta=response){
 
     respuesta.json({
         estado:true,
-        mensaje:'Reserva actualizada con exito'
+        mensaje:'Reserva actualizada con exito',
+        datos: datosReserva
+        
       });
 
 }
@@ -57,7 +59,8 @@ async function eliminarHotelTransilvania(peticion=request,respuesta=response){
 
     respuesta.json({
         estado:true,
-        mensaje:'Reserva eliminada, vuelva pronto'
+        mensaje:'Reserva eliminada, vuelva pronto',
+        datos: id
       });
 
 }
